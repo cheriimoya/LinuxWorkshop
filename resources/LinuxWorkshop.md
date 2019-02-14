@@ -4,18 +4,34 @@ Welcome to the Workshop
 ---
 
 ## Points to cover
+<div class="fragment">
 * Some vocabluary to begin with
+</div>
+<div class="fragment">
 * How OSD is built currently
+</div>
+<div class="fragment">
 * How we planned on changing this workflow
+</div>
+<div class="fragment">
 * How to work in the command line efficiently
+</div>
+<div class="fragment">
 * Git and especially git-flow
+</div>
+<div class="fragment">
 * How linux works (in general, just an overview)
+</div>
+<div class="fragment">
 * Why we do the changes we do
+</div>
 
 ---
 
 ## Some vocabluary to begin with
+<div class="fragment">
 ![boring](https://media.giphy.com/media/MGmnFOZRFRo4w/giphy.gif)
+</div>
 
 ~~~
 
@@ -137,10 +153,24 @@ Groovy
 
 ~~~
 
+docker
+> Docker is a computer program that performs operating-system-level
+> virtualization, also known as "containerization". It was first released
+> in 2013 and is developed by Docker, Inc. Docker is used to run software
+> packages called "containers". Containers are isolated from each other and
+> bundle their own application, tools, libraries and configuration files;
+> they can communicate with each other through well-defined channels
 *~wikipedia.org*
 
 ~~~
 
+qemu
+> QEMU (short for Quick Emulator) is a free and open-source emulator that
+> performs hardware virtualization. QEMU is a hosted virtual machine monitor:
+> it emulates the machine's processor through dynamic binary translation and
+> provides a set of different hardware and device models for the machine,
+> enabling it to run a variety of guest operating systems.
+*~wikipedia.org*
 
 ---
 
@@ -149,7 +179,9 @@ Groovy
 ~~~
 
 Currently built on Jenkins with a Jenkinsfile
+<div class="fragment">
 ![Image of jenkins](resources/images/Jenkins.png)
+</div>
 
 ~~~
 
@@ -178,35 +210,110 @@ node() {
 ---
 
 ### Jenkins
+<div class="fragment">
 * is used as our build server
+</div>
+<div class="fragment">
 * has a pipeline system which is programmable in groovy
+</div>
+<div class="fragment">
 * builds every time a 'git push' happens
+</div>
+<div class="fragment">
+* will notify bitbucket about build status
+</div>
+
+~~~
+
+![build diagram](https://inside-docupedia.bosch.com/confluence/rest/gliffy/1.0/embeddedDiagrams/1114b640-dcaf-4dc4-b836-e30f6a1d1ddd.png)
+[Build process](https://inside-docupedia.bosch.com/confluence/display/BSC2OSD/ISO+Build+Process)
+
+---
+
+### docker
+Can be used to build osd in a container without touching any files on the host
+Always produces the same output given the same input
+
+~~~
+
+Dockerfile is used for config
+```dockerfile
+FROM ubuntu:xenial
+ADD res/sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install --no-install-recommends -y sudo
+ADD development.tar.gz /workspace-osd
+WORKDIR "/workspace-osd/development"
+ENTRYPOINT [ "bash", "run_inside_docker.sh" ]
+```
+
+---
+
+### Testing
+<div class="fragment">
+* still done by qemu
+</div>
+<div class="fragment">
+* docker has some limitations
+</div>
+
+---
+
+### ansible
 
 ---
 
 ## Changes we planned for this workflow
+<div class="fragment">
 * Using docker on Jenkins
+</div>
+<div class="fragment">
 * Making the whole process more granular
+</div>
+<div class="fragment">
 * Therefore making more use of the pipeline
+</div>
+<div class="fragment">
 * Use ansible as configuration management tool
+</div>
+<div class="fragment">
 * Simplifying things in general
+</div>
 
 ---
 
 ## How to work in the command line efficiently
+<div class="fragment">
 * Zsh
+</div>
+<div class="fragment">
 * Vim vs vi
+</div>
+<div class="fragment">
 * Useful unix programs
+</div>
+<div class="fragment">
 * Handle command output and command chaining
+</div>
+<div class="fragment">
 * Some tricks
+</div>
+<div class="fragment">
 * Cheat sheets
+</div>
+<div class="fragment">
 * Dotfiles
+</div>
 
 ---
 
 ## zsh
+<div class="fragment">
 * customisation
+</div>
+<div class="fragment">
 * autocompletion
+</div>
 
 <!--
 touch testfile{1..6}.txt, ls, echo "this is a test" > testfile{1,2}.txt
@@ -216,88 +323,176 @@ ll testfile<tab><tab>, rm testfile{2,4}.txt, ls. rm *
 ---
 
 ## vim vs vi
+<div class="fragment">
 * w? q? wq!
+</div>
+<div class="fragment">
 * plugins
+</div>
 
 ---
 
 ## useful unix programs
+<div class="fragment">
 * manpages '/' to search
+</div>
+<div class="fragment">
 * cat
+</div>
+<div class="fragment">
 * grep
+</div>
+<div class="fragment">
 * ssh
+</div>
 
 ---
 
 ## handle command output and command chaining
+<div class="fragment">
 * <( )
+</div>
+<div class="fragment">
 * $( )
+</div>
+<div class="fragment">
 * wget -O -
+</div>
+<div class="fragment">
 * echo "hi" |
+</div>
+<div class="fragment">
 * <<, <, >, >>, <<<
+</div>
+<div class="fragment">
 * $?
+</div>
+<div class="fragment">
 * &&, ||, ;
+</div>
 
 ---
 
 ## some tricks
+<div class="fragment">
 * '' vs ""
+</div>
+<div class="fragment">
 * set -e, set -x
+</div>
+<div class="fragment">
 * /usr/bin/env bash
+</div>
+<div class="fragment">
 * ctrl arrows
+</div>
+<div class="fragment">
 * ctrl shift arrows
+</div>
+<div class="fragment">
 * ctrl r
+</div>
+<div class="fragment">
 * alt .
+</div>
+<div class="fragment">
 * TERM=ansi
+</div>
 
 ---
 
 ## cheat sheets
+<div class="fragment">
 * vim
+</div>
+<div class="fragment">
 * git
+</div>
+<div class="fragment">
 * regex
+</div>
+<div class="fragment">
 * unix
+</div>
 
 ---
 
 ## dotfiles
+<div class="fragment">
 * vimrc
+</div>
+<div class="fragment">
 * zshrc
+</div>
+<div class="fragment">
 * use of alias
+</div>
+<div class="fragment">
 * gitconfig
+</div>
 
 ---
 
-* git and especially git-flow
-    * working with branches
-        * feature, hotfix, bugfix, release, dev
-    * commits
-        * write good commit messages
-        * how often to commit
-    * conflicts
-        * why
-        * how to resolve
-    * configuration of git
-        * gitconfig
-        * gitignore
-    * git diff
-    * remotes / HEAD / revisions
-    * rebase correctly
-    * stash
-* how linux works (in general, just an overview)
-    * what is a kernel
-        * managing hardware resources
-        * managing software
-        * abstracting hardware
-    * what is a kernel module
-        * providing functionality
-        * simple interface
-    * where (and where not) to put files
-        * FHS
-        * /tmp is mounted in ram
-        * clean up after yourself
-        *
-* why we do the changes we do
+## git and especially git-flow
+* working with branches
+    * feature, hotfix, bugfix, release, dev
+
+~~~
+
+* commits
+    * write good commit messages
+    * how often to commit
+
+~~~
+
+* conflicts
+    * why
+    * how to resolve
+
+~~~
+
+* configuration of git
+    * gitconfig
+    * gitignore
+
+~~~
+
+* git diff
+
+~~~
+
+* remotes / HEAD / revisions
+
+~~~
+
+* rebase correctly
+* stash
+
+---
+
+## how linux works (in general, just an overview)
+* what is a kernel
+    * managing hardware resources
+    * managing software
+    * abstracting hardware
+
+~~~
+
+* what is a kernel module
+    * providing functionality
+    * simple interface
+
+~~~
+
+* where (and where not) to put files
+    * FHS
+    * /tmp is mounted in ram
+    * clean up after yourself
+    *
+
+---
+
+## why we do the changes we do
     * compliance
     * security
     * ease of use
