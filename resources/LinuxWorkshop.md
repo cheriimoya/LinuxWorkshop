@@ -416,6 +416,9 @@ ll testfile<tab><tab>, rm testfile{2,4}.txt, ls. rm *
 ~~~
 
 ## Where (and where not) to put files
+|path|purpose|what to put|what not to put|
+|----|-------|-----------|---------------|
+|
 * FHS
 * /tmp is mounted in ram
 * clean up after yourself
