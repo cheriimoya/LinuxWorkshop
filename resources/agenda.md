@@ -48,6 +48,7 @@ Analysing the what each file does in groups of two
 ~~~
 15:00 - 16:00
 Presentation of results and correction (if necessary)
+Completion of the order of the processes (communication)
 ~~~
 16:00 - 16:30
 Knowledge wise:
@@ -60,19 +61,74 @@ If yes, what could be improved?
 Do you think the scripts are good?
 ~~~
 16:30 - 17
+Questions for checking if everyone understood the process
 
-
-Explaining Jenkins hands on
 
 ~~~
 ** - end
 Feedback round
 
-
-
-day 2
+DAY2
 ---
 9:00 - 9:15
 Recap (what did we learn yesterday)
 ~~~
-9:15 - 15
+Definitions of the day
+~~~
+9:15 -
+Explaining Jenkins
+~~~
+Playing around with "local" Jenkins
+~~~
+Explaining docker
+~~~
+Create litte docker container
+Build iso in docker (old way)
+Build iso in docker (new way)
+~~~
+Explaining QEMU
+Boot up OSD image in qemu
+~~~
+Explaining changes we want to do
+~~~
+** - end
+Feedback round
+
+
+DAY3
+---
+9:00 - 9:15
+Recap (what did we learn yesterday)
+~~~
+Definitions of the day
+~~~
+Why do we do the changes we do?
+~~~
+What is the definitive goal we want to achieve?
+~~~
+Linux in general
+~~~
+Linux kernel
+~~~
+Linux kernel modules
+~~~
+Where to put files (FHS)
+~~~
+The importance of cleaning up after yourself
+~~~
+Cheat sheets
+~~~
+Git
+Large topic
+
+DAY4
+---
+9:00 - 9:15
+Recap (what did we learn yesterday)
+~~~
+Definitions of the day
+~~~
+Working with the CLI efficiently
+Large topic
+~~~
+
