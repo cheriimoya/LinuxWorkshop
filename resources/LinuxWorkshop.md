@@ -4,27 +4,15 @@ Welcome to the Workshop
 ---
 
 ## Points to cover
-<div class="fragment">
-* Some vocabluary to begin with
-</div>
-<div class="fragment">
-* How OSD is built currently
-</div>
-<div class="fragment">
-* How we planned on changing this workflow
-</div>
-<div class="fragment">
-* How to work in the command line efficiently
-</div>
-<div class="fragment">
-* Git and especially git-flow
-</div>
-<div class="fragment">
-* How linux works (in general, just an overview)
-</div>
-<div class="fragment">
-* Why we do the changes we do
-</div>
+<ul>
+<li class="fragment">Some vocabluary to begin with</li>
+<li class="fragment">How OSD is built currently</li>
+<li class="fragment">How we planned on changing this workflow</li>
+<li class="fragment">How to work in the command line efficiently</li>
+<li class="fragment">Git and especially git-flow</li>
+<li class="fragment">How linux works (in general, just an overview)</li>
+<li class="fragment">Why we do the changes we do</li>
+</ul>
 
 ---
 
@@ -185,54 +173,64 @@ Currently built on Jenkins with a Jenkinsfile
 
 ~~~
 
-```Groovy
-node() {
-    try {
-      stage('Checkout') { checkout scm }
-
-      dir("development") {
-        stage('Check prerequisites') {
-          sh './check_prerequisites.sh'
-          sh 'df -h'
-        }
-        stage('Download ISO') {
-          sh './get_newest_mini_iso.sh'
-        }
-...
-}
-```
-
-~~~
-
 ... or locally within docker
 ![Image of docker build](resources/images/Dockerbuild.png)
 
 ---
 
 ### Jenkins
-<div class="fragment">
-* is used as our build server
-</div>
-<div class="fragment">
-* has a pipeline system which is programmable in groovy
-</div>
-<div class="fragment">
-* builds every time a 'git push' happens
-</div>
-<div class="fragment">
-* will notify bitbucket about build status
-</div>
+<ul>
+<li class="fragment">is used as our build server</li>
+<li class="fragment">has a pipeline system, programmable in groovy</li>
+<li class="fragment">builds every time a 'git push' happens</li>
+<li class="fragment">will notify bitbucket about build status</li>
+</ul>
+<div class="fragment">![jenkins logo](https://jenkins.io/images/logos/jenkins/jenkins.svg)</div>
 
 ~~~
 
+#### Scripted Pipeline syntax
+* node() { ... }
+<div class="fragment">~ computer to build on</div>
+* stage( '...' ) { ... }
+<div class="fragment">~ block of code that executes defined task</div>
+* step
+<div class="fragment">~ actual task being run</div>
+
+~~~
+
+#### Example
+```Groovy
+node() {
+  try {
+    stage('Checkout') { checkout scm }
+
+    dir("development") {
+      stage('Check prerequisites') {
+        sh './check_prerequisites.sh'
+        sh 'df -h'
+      }
+      stage('Download ISO') {
+        sh './get_newest_mini_iso.sh'
+      }
+...
+}
+```
+
+~~~
+
+#### Iso build process
 ![build diagram](https://inside-docupedia.bosch.com/confluence/rest/gliffy/1.0/embeddedDiagrams/1114b640-dcaf-4dc4-b836-e30f6a1d1ddd.png)
 [Build process](https://inside-docupedia.bosch.com/confluence/display/BSC2OSD/ISO+Build+Process)
 
 ---
 
 ### docker
-Can be used to build osd in a container without touching any files on the host
-Always produces the same output given the same input
+<ul>
+<li class="fragment">Can be used to build osd in a container without touching any files on the host</li>
+<li class="fragment">Always produces the same output given the same input</li>
+</ul>
+<div class="fragment">![docker logo](https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg)</div>
 
 ~~~
 
@@ -250,12 +248,10 @@ ENTRYPOINT [ "bash", "run_inside_docker.sh" ]
 ---
 
 ### Testing
-<div class="fragment">
-* still done by qemu
-</div>
-<div class="fragment">
-* docker has some limitations
-</div>
+<ul>
+<li class="fragment">still done by qemu</li>
+<li class="fragment">docker has some limitations</li>
+</ul>
 
 ---
 
@@ -264,56 +260,34 @@ ENTRYPOINT [ "bash", "run_inside_docker.sh" ]
 ---
 
 ## Changes we planned for this workflow
-<div class="fragment">
-* Using docker on Jenkins
-</div>
-<div class="fragment">
-* Making the whole process more granular
-</div>
-<div class="fragment">
-* Therefore making more use of the pipeline
-</div>
-<div class="fragment">
-* Use ansible as configuration management tool
-</div>
-<div class="fragment">
-* Simplifying things in general
-</div>
+<ul>
+<li class="fragment">Using docker on Jenkins</li>
+<li class="fragment">Making the whole process more granular</li>
+<li class="fragment">Therefore making more use of the pipeline</li>
+<li class="fragment">Use ansible as configuration management tool</li>
+<li class="fragment">Simplifying things in general</li>
+</ul>
 
 ---
 
 ## How to work in the command line efficiently
-<div class="fragment">
-* Zsh
-</div>
-<div class="fragment">
-* Vim vs vi
-</div>
-<div class="fragment">
-* Useful unix programs
-</div>
-<div class="fragment">
-* Handle command output and command chaining
-</div>
-<div class="fragment">
-* Some tricks
-</div>
-<div class="fragment">
-* Cheat sheets
-</div>
-<div class="fragment">
-* Dotfiles
-</div>
+<ul>
+<li class="fragment">Zsh</li>
+<li class="fragment">Vim vs vi</li>
+<li class="fragment">Useful unix programs</li>
+<li class="fragment">Handle command output and command chaining</li>
+<li class="fragment">Some tricks</li>
+<li class="fragment">Cheat sheets</li>
+<li class="fragment">Dotfiles</li>
+</ul>
 
 ---
 
-## zsh
-<div class="fragment">
-* customisation
-</div>
-<div class="fragment">
-* autocompletion
-</div>
+## Zsh
+<ul>
+<li class="fragment">customisation</li>
+<li class="fragment">autocompletion</li>
+</ul>
 
 <!--
 touch testfile{1..6}.txt, ls, echo "this is a test" > testfile{1,2}.txt
@@ -323,117 +297,71 @@ ll testfile<tab><tab>, rm testfile{2,4}.txt, ls. rm *
 ---
 
 ## vim vs vi
-<div class="fragment">
-* w? q? wq!
-</div>
-<div class="fragment">
-* plugins
-</div>
+<ul>
+<li class="fragment">w? q? wq!</li>
+<li class="fragment">plugins</li>
+</ul>
 
 ---
 
-## useful unix programs
-<div class="fragment">
-* manpages '/' to search
-</div>
-<div class="fragment">
-* cat
-</div>
-<div class="fragment">
-* grep
-</div>
-<div class="fragment">
-* ssh
-</div>
+## Useful unix programs
+<ul>
+<li class="fragment">manpages '/' to search</li>
+<li class="fragment">cat</li>
+<li class="fragment">grep</li>
+<li class="fragment">ssh</li>
+</ul>
 
 ---
 
-## handle command output and command chaining
-<div class="fragment">
-* <( )
-</div>
-<div class="fragment">
-* $( )
-</div>
-<div class="fragment">
-* wget -O -
-</div>
-<div class="fragment">
-* echo "hi" |
-</div>
-<div class="fragment">
-* <<, <, >, >>, <<<
-</div>
-<div class="fragment">
-* $?
-</div>
-<div class="fragment">
-* &&, ||, ;
-</div>
+## Handle command output and command chaining
+<ul>
+<li class="fragment"><( )</li>
+<li class="fragment">$( )</li>
+<li class="fragment">wget -O -</li>
+<li class="fragment">echo "hi" |</li>
+<li class="fragment"><<, <, >, >>, <<<</li>
+<li class="fragment">$?</li>
+<li class="fragment">&&, ||, ;</li>
+</ul>
 
 ---
 
-## some tricks
-<div class="fragment">
-* '' vs ""
-</div>
-<div class="fragment">
-* set -e, set -x
-</div>
-<div class="fragment">
-* /usr/bin/env bash
-</div>
-<div class="fragment">
-* ctrl arrows
-</div>
-<div class="fragment">
-* ctrl shift arrows
-</div>
-<div class="fragment">
-* ctrl r
-</div>
-<div class="fragment">
-* alt .
-</div>
-<div class="fragment">
-* TERM=ansi
-</div>
+## Some tricks
+<ul>
+<li class="fragment">'' vs ""</li>
+<li class="fragment">set -e, set -x</li>
+<li class="fragment">/usr/bin/env bash</li>
+<li class="fragment">ctrl arrows</li>
+<li class="fragment">ctrl shift arrows</li>
+<li class="fragment">ctrl r</li>
+<li class="fragment">alt .</li>
+<li class="fragment">TERM=ansi</li>
+</ul>
 
 ---
 
-## cheat sheets
-<div class="fragment">
-* vim
-</div>
-<div class="fragment">
-* git
-</div>
-<div class="fragment">
-* regex
-</div>
-<div class="fragment">
-* unix
-</div>
+## Cheat sheets
+<ul>
+<li class="fragment">vim</li>
+<li class="fragment">git</li>
+<li class="fragment">regex</li>
+<li class="fragment">unix</li>
+</ul>
 
 ---
 
-## dotfiles
-<div class="fragment">
-* vimrc
-</div>
-<div class="fragment">
-* zshrc
-</div>
-<div class="fragment">
-* use of alias
-</div>
-<div class="fragment">
-* gitconfig
-</div>
+## Dotfiles
+<ul>
+<li class="fragment">vimrc</li>
+<li class="fragment">zshrc</li>
+<li class="fragment">use of alias</li>
+<li class="fragment">gitconfig</li>
+</ul>
 
 ---
 
-## git and especially git-flow
+## Git and especially git-flow
 * working with branches
     * feature, hotfix, bugfix, release, dev
 
@@ -470,32 +398,34 @@ ll testfile<tab><tab>, rm testfile{2,4}.txt, ls. rm *
 
 ---
 
-## how linux works (in general, just an overview)
-* what is a kernel
-    * managing hardware resources
-    * managing software
-    * abstracting hardware
+## How linux works (in general, just an overview)
 
 ~~~
 
-* what is a kernel module
-    * providing functionality
-    * simple interface
+### What does the linux kernel do?
+* managing hardware resources
+* managing software
+* abstracting hardware
 
 ~~~
 
-* where (and where not) to put files
-    * FHS
-    * /tmp is mounted in ram
-    * clean up after yourself
-    *
+### What do we need kernel modules for?
+* providing functionality
+* simple interface
+
+~~~
+
+## Where (and where not) to put files
+* FHS
+* /tmp is mounted in ram
+* clean up after yourself
 
 ---
 
 ## why we do the changes we do
-    * compliance
-    * security
-    * ease of use
-    * pre requisites for making linux work inside of bosch
+* compliance
+* security
+* ease of use
+* pre requisites for making linux work inside of bosch
 
 generally make everyone more interested in the project and technology in general
