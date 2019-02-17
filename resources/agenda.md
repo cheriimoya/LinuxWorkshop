@@ -1,50 +1,51 @@
 DAY1
 ---
-09:00 - 09:30
+10 min
 Energizer TBD
 ~~~
-09:30 - 09:45
+10 min
 Introduction of ourselves
 ~~~
-09:45 - 10:00
+5 min
 Presentation of agenda
-Defining the goals
 ~~~
-How well do you think you know the project?
-~~~
-How well do you think you know linux and the CLI?
-~~~
-10:00 - 10:20
-Tree of good harvest
-~~~
-10:20 - 10:30
-Presenting results
-~~~
-10:30 - 10:50
-Tree of bad harvest
-~~~
-10:50 - 11:00
-Presenting results
-~~~
-11:00 - 11:15
+10
 What do you expect from this workshop?
 ~~~
-11:15 - 11:30
+10
+How well do you know the project?
+~~~
+10
+How well do you know linux and the CLI?
+~~~
+10
+Defining the goals
+~~~
+30
+Tree of good harvest within the team
+~~~
+20
+Presenting results
+~~~
+30
+changes we need / what we can improve
+~~~
+20
+Presenting results
+~~~
+15
 Definitions of the day
 ~~~
-11:30 - 12:00
-High level explanation of the build process
-~~~
-12:00 - 13:00
-Lunch break
-~~~
-13:00 - 13:30
+30
 Breaking down the installation process
 Pointing out the important files
 Drawing an outline (timeline with holes)
 ~~~
-13:30 - 15:00
+20
 Analysing the what each file does in groups of two
+~~~
+teatime
+20 min
 ~~~
 15:00 - 16:00
 Presentation of results and correction (if necessary)
@@ -62,11 +63,13 @@ Do you think the scripts are good?
 ~~~
 16:30 - 17
 Questions for checking if everyone understood the process
-
-
+~~~
+30
+Summary of the build process
 ~~~
 ** - end
 Feedback round
+closing
 
 DAY2
 ---
