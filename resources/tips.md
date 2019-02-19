@@ -1,3 +1,0 @@
-adjektiv plus name
-
-:
